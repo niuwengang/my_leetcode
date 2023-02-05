@@ -75,7 +75,7 @@ int main()
     head2->next = new ListNode(5);
     head2->next->next = new ListNode(6);
 
-    Solution s;
+    Solution1 s;
     s.addTwoNumbers(head1, head2);
     return 0;
 }
