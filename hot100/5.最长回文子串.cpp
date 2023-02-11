@@ -1,7 +1,7 @@
 #include "bits/stdc++.h"
 using namespace std;
 
-// 1.DP s[i]==s[j])&&
+// 1.DP (s[i]==s[j])&&Dp[i+1][j-1] ==>Dp[i][j]==1 o(n^2)
 class Solution {
 public:
     string longestPalindrome(string s) {
