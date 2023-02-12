@@ -39,6 +39,10 @@ public:
     }
 };
 
+
+//2.栈
+
+
 int main()
 {
     ListNode *l1 = new ListNode(1);
