@@ -7,6 +7,14 @@ c++11 增加了线程序及线程相关的类
 #include <thread>
 using namespace std;
 
+/*
+线程对象不允许拷贝
+移动构造有
+线程中的资源不可复制但可被转移
+*/
+
+
+
 // 1.普通函数
 void func(const string &str)
 {
@@ -99,7 +107,7 @@ int main()
     std::thread t4(test::f, "4");
     std::thread t5(&example::f,&e,"5");//成员函数的地址  + this 指针
 
-    t1.join(); // 回收线程
+    t1.join(); // 回收线程资源
     t2.join();
     t3.join();
     t4.join();
