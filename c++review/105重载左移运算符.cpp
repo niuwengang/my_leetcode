@@ -1,7 +1,5 @@
- #include <bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-
-
 
 class person
 {
@@ -34,25 +32,22 @@ public:
         return this->m_score < p.m_score;
     }
 
-
-
     int m_age;
     string m_name;
     float m_score;
 };
 
-    ostream& operator<<(ostream&cout,person&p)
-    {
-   cout<<p.m_score;
-   return cout;
-    }
+ostream &operator<<(ostream &cout, person &p)
+{
+    cout << p.m_score;
+    return cout;
+}
 
 int main()
 {
     std::unique_ptr<person> person_ptr1 = make_unique<person>("zhangsan", 22, 99);
     std::unique_ptr<person> person_ptr2 = make_unique<person>("lisi", 23, 100);
-    cout<<(*person_ptr1>*person_ptr2)<<endl;
-    cout<<*person_ptr1;
+    cout << (*person_ptr1 > *person_ptr2) << endl;
+    cout << *person_ptr1;
     return 0;
-
 }
