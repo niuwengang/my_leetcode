@@ -28,8 +28,8 @@ class Solution
             res += map.top();
             map.pop();
         }
-         reverse(res.begin(), res.end());
-         return res;
+        reverse(res.begin(), res.end());
+        return res;
     }
 };
 int main()
