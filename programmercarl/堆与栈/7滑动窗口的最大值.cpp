@@ -1,31 +1,29 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// 单调队列
+
 class Solution
 {
   public:
     vector<int> maxSlidingWindow(vector<int> &nums, int k)
     {
+        auto cmp = [](const pair<int, int>& a, const pair<int, int>& b) { return a.first < b.first; };
+        priority_queue<pair<int, int>, vector<pair<int, int>>, decltype(cmp)> q(cmp);
         vector<int> res;
-        deque<int> q;
         for (int i = 0; i < k; i++)
         {
-            while (!q.empty() && nums[i] > q.front())
-            {
-                q.pop_back();
-            }
-            q.push_back(nums[i]);
+            q.push(pair<int,int>(nums[i], i));
         }
-        res.push_back(q.front());
-        for(int j=k;j<nums.size();j++)
+        res.push_back(q.top().first);
+        for (int j = k; j < nums.size(); j++)
         {
-            while (!q.empty() && nums[j] > q.back())
+            q.push(pair<int, int>(nums[j], j));
+            /*去掉旧的且影响结果的*/
+            while (q.top().second <= j - k)
             {
-                q.pop_front();
+                q.pop();
             }
-            q.push_back(nums[j]);
-            res.push_back(q.front());
+            res.push_back(q.top().first);
         }
         return res;
     }
