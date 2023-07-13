@@ -49,9 +49,9 @@ int main()
     vec.emplace_back("王五");
     cout << "容器容量为 " << vec.capacity() << endl;
     cout << "-------------------" << endl;
-    for (const auto& it : vec)
-    {
-        cout << it.m_name << endl;
-    }
+    // for (const auto& it : vec)
+    // {
+    //     cout << it.m_name << endl;
+    // }
     return 0;
 }
