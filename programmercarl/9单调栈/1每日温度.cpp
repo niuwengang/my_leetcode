@@ -3,6 +3,11 @@ using namespace std;
 
 // https : // leetcode.cn/problems/daily-temperatures/solutions/71433/leetcode-tu-jie-739mei-ri-wen-du-by-misterbooo/
 
+/*
+当前左边或者右边第一个大或者小的问题
+这里栈的作用是比较当前值和之前值
+*/
+
 class Solution
 {
   public:
@@ -15,7 +20,7 @@ class Solution
            
             while (!record.empty() && temp > temperatures[record.top()])//维护一个递减
             {
-                auto t=record.top();
+                auto t=record.top();//按栈顶元素记录结果
                 record.pop();
                 res[t]=idx-t;
             }
