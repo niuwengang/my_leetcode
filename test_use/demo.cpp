@@ -3,11 +3,11 @@ using namespace std;
 
 int main()
 {
-    vector<int> res(10);
-    std::iota(res.begin(), res.end(), 0);
-    for (int i = 0; i < res.size(); ++i)
+    std::vector<int> vec{1, 2, 3, 4, 5, 6};
+    std::for_each(vec.begin(), vec.end(), [](int & index) { index+=20;return index; });
+    for (auto &it : vec)
     {
-        cout << res[i] << " ";
+        std::cout << it << " ";
     }
 }
 // class Base
