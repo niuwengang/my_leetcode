@@ -1,54 +1,30 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main()
+class A
 {
-    std::vector<int> vec{1, 2, 3, 4, 5, 6};
-    std::for_each(vec.begin(), vec.end(), [](int & index) { index+=20;return index; });
-    for (auto &it : vec)
-    {
-        std::cout << it << " ";
-    }
+  public:
+    int a;
+}; // sizeof(A) = 4
+
+class B : virtual public A
+{
+}; // sizeof(B) = 4 + 4 = 8
+
+class C : virtual public A
+{
+}; // sizeof(C) = 4 + 4 = 8
+
+class D : public B, public C
+{
+}; // sizeof(D) = 8 + 8 - 1 * 4 = 12
+
+int main(int argc, char *argv[])
+{
+    A a;
+    B b;
+    C c;
+    D d;
+    std::cout<<"go";
+    return 0;
 }
-// class Base
-// {
-//   public:
-//     Base()
-//     {
-//         cout << "Base() called." << endl;
-//     }
-//     virtual ~Base()
-//     {
-//         cout << "~Base() called." << endl;
-//     }
-
-//     int base = 0;
-// };
-// class Dervied : public Base
-// {
-//   public:
-//     Dervied()
-//     {
-//         cout << "Dervied() called." << endl;
-//     }
-//     Dervied(int a)
-//     {
-//         func( a);
-//     }
-//     ~Dervied()
-//     {
-//         cout << "Dervied() called." << endl;
-//     }
-//     void func(int param)
-//     {
-
-//     }
-// };
-
-// int main()
-// {
-//     Base *b = new Dervied();
-
-//     delete b;
-//     return 0;
-// }
