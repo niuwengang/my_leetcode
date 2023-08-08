@@ -1,6 +1,10 @@
 #include "bits/stdc++.h"
 using namespace std;
 
+
+/*
+时间复杂度O(n)
+*/
 class Solution
 {
   public:
