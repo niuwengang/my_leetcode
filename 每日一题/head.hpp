@@ -14,4 +14,3 @@ struct TreeNode
     }
 };
 
-class Solution
