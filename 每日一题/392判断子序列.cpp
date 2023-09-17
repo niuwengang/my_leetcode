@@ -6,37 +6,34 @@ class Solution
   public:
     bool isSubsequence(string s, string t)
     {
-        unordered_map<char, int> record;
-        for (int i = 0; i < t.size(); i++)
+        if (s.size() <= 0)
+            return true;
+        stack<char> k;
+        for (int i = s.size() - 1; i >= 0; i--)
         {
-            record.insert(pair<char, int>(t[i], i));
+            k.push(s[i]);
         }
-
-        int last_index = -1;
-        for (const auto &it : s)
+        for (auto &it : t)
         {
-            auto point = record.find(it);
-            if (point != record.end())
+            if (k.size() == 0)
             {
-                int cur_index = point->second;
-                if (cur_index > last_index)
-                {
-                    last_index = cur_index;
-                }
-                else
-                {
-                    return false;
-                }
+                return true;
+            }
+            else if (it == k.top())
+            {
+                k.pop();
             }
             else
             {
-                return false;
             }
         }
-        return true;
+        return k.size() == 0;
     }
 };
 
 int main()
 {
+    Solution s;
+    s.isSubsequence("b", "abc");
+    return true;
 }
